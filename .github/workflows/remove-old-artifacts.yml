@@ -11,12 +11,6 @@ jobs:
   remove-old-artifacts:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        retain_days: 30
-        keep_minimum_runs: 10
 
     steps:
     - name: Remove old artifacts
@@ -26,3 +20,9 @@ jobs:
         # Optional inputs
         # skip-tags: true
         # skip-recent: 5
+        
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 30
+        keep_minimum_runs: 10
